@@ -1,0 +1,18 @@
+{
+  "name": "contact_manager",
+  "version": "1.0.0",
+  "description": "This is my first project on my backend portfolor",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ayush",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
