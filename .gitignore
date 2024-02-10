@@ -1,0 +1,5 @@
+# Ignoring the module and dependent files.
+*/node_modules
+
+# removing the envoirment dependent files
+*/.env
