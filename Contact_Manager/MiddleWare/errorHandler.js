@@ -1,8 +1,5 @@
 const constants = require('../Constatnts')
 
-console.log(constants)
-console.log(constants.VALIDAION_ERROR)
-
 const errorHandler = (err, req, res, next) => {
     const statusCode = res.statusCode ? res.statusCode : 500;
     switch (statusCode) {
