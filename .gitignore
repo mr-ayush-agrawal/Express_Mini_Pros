@@ -1,5 +1,9 @@
 # Ignoring the module and dependent files.
 */node_modules
+node_modules/
 
 # removing the envoirment dependent files
 */.env
+
+# Personal revision things and Notes
+question.md

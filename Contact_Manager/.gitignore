@@ -4,5 +4,3 @@ node_modules
 # removing the envoirment dependent files
 */.env
 
-# Personal revision things and Notes
-question.md
