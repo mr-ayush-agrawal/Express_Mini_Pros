@@ -9,7 +9,8 @@ const router = require('./routes/tasksRoute')
 
 DBconnection()
 app.use(express.json())
-app.use('/', router )
+app.use(express.static('./public'))
+app.use('/tasks', router )
 
 
 

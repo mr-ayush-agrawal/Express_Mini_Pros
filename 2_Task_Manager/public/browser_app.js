@@ -7,9 +7,9 @@ const formAlertDOM = document.querySelector('.form-alert')
 const showTasks = async () => {
     loadingDOM.style.visibility = 'visible'
     try {
-        const {
-            data: { tasks },
-        } = await axios.get('/tasks')
+        const z = await axios.get('/tasks')
+        const tasks = z.data
+        // console.log(tasks)
         if (tasks.length < 1) {
             tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
             loadingDOM.style.visibility = 'hidden'
@@ -17,12 +17,10 @@ const showTasks = async () => {
         }
         const allTasks = tasks
             .map((task) => {
-                const { completed, _id: taskID, title } = task
-                return `<div class="single-task ${completed && 'task-completed'}">
+                const { isCompleted, _id: taskID, title } = task
+                return `<div class="single-task ${isCompleted && 'task-completed'}">
 <h5><span><i class="far fa-check-circle"></i></span>${title}</h5>
 <div class="task-links">
-
-
 
 <!-- edit link -->
 <a href="task.html?id=${taskID}"  class="edit-link">
@@ -38,8 +36,8 @@ const showTasks = async () => {
             .join('')
         tasksDOM.innerHTML = allTasks
     } catch (error) {
-        tasksDOM.innerHTML =
-            '<h5 class="empty-list">There was an error, please try later....</h5>'
+        tasksDOM.innerHTML = '<h5 class="empty-list">There was an error, please try later....</h5>'
+        console.log(error);
     }
     loadingDOM.style.visibility = 'hidden'
 }
