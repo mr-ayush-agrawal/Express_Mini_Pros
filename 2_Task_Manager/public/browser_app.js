@@ -7,8 +7,8 @@ const formAlertDOM = document.querySelector('.form-alert')
 const showTasks = async () => {
     loadingDOM.style.visibility = 'visible'
     try {
-        const z = await axios.get('/tasks')
-        const tasks = z.data
+        const resp = await axios.get('/tasks')
+        const tasks = resp.data
         // console.log(tasks)
         if (tasks.length < 1) {
             tasksDOM.innerHTML = '<h5 class="empty-list">No tasks in your list</h5>'
