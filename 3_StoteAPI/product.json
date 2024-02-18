@@ -1,0 +1,72 @@
+[
+    {
+        "name": "iPhone 13",
+        "price": 109999,
+        "featured": true,
+        "rating": 4.8,
+        "company": "Apple"
+    },
+    {
+        "name": "Galaxy S21",
+        "price": 89999,
+        "featured": true,
+        "rating": 4.7,
+        "company": "Samsung"
+    },
+    {
+        "name": "OnePlus 9",
+        "price": 79999,
+        "featured": false,
+        "rating": 4.5,
+        "company": "OnePlus"
+    },
+    {
+        "name": "iPhone SE",
+        "price": 49999,
+        "featured": false,
+        "rating": 4.3,
+        "company": "Apple"
+    },
+    {
+        "name": "Realme 8 Pro",
+        "price": 24999,
+        "featured": true,
+        "rating": 4.2,
+        "company": "Realme"
+    },
+    {
+        "name": "Galaxy A52",
+        "price": 39999,
+        "featured": true,
+        "rating": 4.4,
+        "company": "Samsung"
+    },
+    {
+        "name": "iPhone 12 Mini",
+        "price": 69999,
+        "featured": false,
+        "rating": 4.6,
+        "company": "Apple"
+    },
+    {
+        "name": "OnePlus Nord",
+        "price": 54999,
+        "featured": true,
+        "rating": 4.5,
+        "company": "OnePlus"
+    },
+    {
+        "name": "Realme GT",
+        "price": 32999,
+        "featured": true,
+        "rating": 4.3,
+        "company": "Realme"
+    },
+    {
+        "name": "Galaxy Note 20",
+        "price": 99999,
+        "featured": true,
+        "rating": 4.7,
+        "company": "Samsung"
+    }
+]
