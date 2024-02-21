@@ -1,6 +1,6 @@
 const formDOM = document.querySelector('.form')
-const usernameInputDOM = document.querySelector('.username-input')
-const passwordInputDOM = document.querySelector('.password-input')
+const usernameInputDOM = document.querySelector('#username-input')
+const passwordInputDOM = document.querySelector('#password-input')
 const formAlertDOM = document.querySelector('.form-alert')
 const resultDOM = document.querySelector('.result')
 const btnDOM = document.querySelector('#data')
@@ -11,26 +11,26 @@ formDOM.addEventListener('submit', async (e) => {
   tokenDOM.classList.remove('text-success')
 
   e.preventDefault()
-  const username = usernameInputDOM.value
+  const user = usernameInputDOM.value
   const password = passwordInputDOM.value
-
+  
   try {
-    const { data } = await axios.post('/login', { username, password })
-
+    const {data} = await axios.post('/login', { user, password });
+    
     formAlertDOM.style.display = 'block'
-    formAlertDOM.textContent = data.msg
+    formAlertDOM.textContent = data.data
 
     formAlertDOM.classList.add('text-success')
     usernameInputDOM.value = ''
     passwordInputDOM.value = ''
 
-    localStorage.setItem('token', data.token)
+    localStorage.setItem('token', data.data)
     resultDOM.innerHTML = ''
     tokenDOM.textContent = 'token present'
     tokenDOM.classList.add('text-success')
   } catch (error) {
     formAlertDOM.style.display = 'block'
-    formAlertDOM.textContent = error.response.data.msg
+    formAlertDOM.textContent = error.response.data.data
     localStorage.removeItem('token')
     resultDOM.innerHTML = ''
     tokenDOM.textContent = 'no token present'

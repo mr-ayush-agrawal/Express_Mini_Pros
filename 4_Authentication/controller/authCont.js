@@ -41,7 +41,7 @@ const login = asyncHandler(async(req, res) =>{
     }
     const availuser = await User.findOne({user})
     if(availuser && await bcrypt.compare(password, availuser.password)){
-        const accessToken = jwt.sign({
+        const data = jwt.sign({
             availuser : {
                 user: availuser.user,
                 id: availuser.id
@@ -49,7 +49,7 @@ const login = asyncHandler(async(req, res) =>{
         }, process.env.ACCESS_TOKEN, {
             expiresIn: "10m"
         });
-        res.status(200).json({ accessToken })
+        res.status(200).json({data:data})
     }
     else{
         res.status(401);
