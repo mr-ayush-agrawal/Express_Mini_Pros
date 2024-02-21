@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const User = require('../config/model')
 const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 const register = asyncHandler(async (req, res)=>{
     const {user, password} = req.body;
@@ -32,11 +33,38 @@ const register = asyncHandler(async (req, res)=>{
     }
 })
 
-const login = (req, res) =>{
-    res.send('123')
-}
+const login = asyncHandler(async(req, res) =>{
+    const {user, password} = req.body
+    if(!user || !password){
+        res.status(400);
+        throw new Error("All feilds are mendatory")
+    }
+    const availuser = await User.findOne({user})
+    if(availuser && await bcrypt.compare(password, availuser.password)){
+        const accessToken = jwt.sign({
+            availuser : {
+                user: availuser.user,
+                id: availuser.id
+            }
+        }, process.env.ACCESS_TOKEN, {
+            expiresIn: "10m"
+        });
+        res.status(200).json({ accessToken })
+    }
+    else{
+        res.status(401);
+        throw new Error("Invalid Login")
+    }
+})
+
+
+
 const dashBoard = (req, res) => {
-    res.send('DashBoard res')
+    const num = Math.floor(Math.random()*100)
+    res.status(200).json({
+        msg: `Hello, ${req.user.user}`,
+        secret: `Here is your authorized data, your lucky number is ${num}`
+    })
 }
 
-module.exports = {login, dashBoard, register}
+module.exports = {login, dashBoard, register}   

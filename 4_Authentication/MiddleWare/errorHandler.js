@@ -33,6 +33,8 @@ const errorHandler = (err, req, res, next) => {
             });
             break;
         default: console.log("No Error")
+        res.json({message: err.message, 
+            stackTrack: err.stack })
     }
     next();
 }
